@@ -1,6 +1,10 @@
+// ========== Global Variables ==========
+
 // Get the theme toggle button and icon
 const themeToggle = document.getElementById("theme-toggle");
 const themeIcon = document.getElementById("theme-icon");
+
+// ========== Functions ==========
 
 // Function to toggle between light and dark mode
 function toggleTheme() {
@@ -19,10 +23,6 @@ function toggleTheme() {
     }
 }
 
-// Add click event listener to theme toggle button
-themeToggle.addEventListener("click", toggleTheme);
-
-// Fucntions
 // Function to fetch weather data based on city name or geolocation
 async function getData(location) {
     const apiKey = "5f908b80dd754a9dba5222328240907";
@@ -51,10 +51,12 @@ async function getData(location) {
                 },
                 (error) => {
                     console.error("Error getting geolocation:", error);
+                    getData("alexandria");
                 }
             );
         } else {
             alert("Geolocation is not supported by this browser.");
+            getData("alexandria");
         }
     } else {
         // Fetch weather data based on city name
@@ -130,28 +132,28 @@ function displayHourlyForecast(data) {
 // Function to display air conditions
 function displayAirConditions(data) {
     var content = `
-        <div class="col-md-6 d-flex align-items-start">
+        <div class="col-md-6 d-flex align-items-start ms-lg-0 ms-4">
             <i class="fa-solid fa-temperature-three-quarters text-off mt-1"></i>
             <div class="text d-flex flex-column ms-2">
                 <span class="ms-2 text-off">Real Feel</span>
                 <span class="ms-2 fs-4 fw-bold">${data.current.temp_c}°</span>
             </div>
         </div>
-        <div class="col-md-6 d-flex align-items-start">
+        <div class="col-md-6 d-flex align-items-start ms-lg-0 ms-4">
             <i class="fa-solid fa-wind text-off mt-1"></i>
             <div class="text d-flex flex-column ms-2">
                 <span class="ms-2 text-off">Wind</span>
                 <span class="ms-2 fs-4 fw-bold">${data.current.wind_kph} km/h</span>
             </div>
         </div>
-        <div class="col-md-6 d-flex align-items-start">
+        <div class="col-md-6 d-flex align-items-start ms-lg-0 ms-4">
             <i class="fa-solid fa-droplet text-off mt-1"></i>
             <div class="text d-flex flex-column ms-2">
                 <span class="ms-2 text-off">Precipitation</span>
                 <span class="ms-2 fs-4 fw-bold">${data.current.precip_mm} mm</span>
             </div>
         </div>
-        <div class="col-md-6 d-flex align-items-start">
+        <div class="col-md-6 d-flex align-items-start ms-lg-0 ms-4">
             <i class="fa-solid fa-sun text-off mt-1"></i>
             <div class="text d-flex flex-column ms-2">
                 <span class="ms-2 text-off">UV Index</span>
@@ -187,10 +189,10 @@ function displaySevenDayForecast(data) {
     }
     document.getElementById("sevenDayData").innerHTML = content;
 }
-// Events
+// ========== Main ==========
 
-// Initial fetch for "Alexandria"
-getData("alexandria");
+// Add click event listener to theme toggle button
+themeToggle.addEventListener("click", toggleTheme);
 
 // Event listener for search input
 var searchInput = document.getElementById("search");
@@ -201,7 +203,4 @@ searchInput.addEventListener("input", function () {
     }
 });
 
-// Ask for geolocation after initial fetch
-setTimeout(() => {
-    getData("current_location");
-}, 50);
+getData("current_location");
