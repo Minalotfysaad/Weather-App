@@ -1,0 +1,116 @@
+:root {
+    --primary-light-color: #f5f5f5;
+    --secondary-light-color: #edeef0;
+    --tertiary-light-color: #d3d6da;
+    --text-color--1: #1d2839;
+    --text-color--2: #868b92;
+}
+
+h1 {
+    font-family: "Merriweather Sans", sans-serif;
+}
+
+.text-off {
+    color: var(--text-color--2);
+}
+
+body {
+    background-color: var(--primary-light-color);
+}
+
+.section {
+    background-color: var(--secondary-light-color);
+    border-radius: 20px;
+}
+
+.my-nav {
+    color: var(--text-color--1);
+}
+
+@media (max-width: 992px) {
+    .my-nav {
+        justify-content: space-evenly;
+    }
+}
+
+.menu-item {
+    border-radius: 20px;
+    transition: 0.3s all ease;
+}
+
+.menu-item.active,
+.menu-item:hover {
+    background-color: var(--tertiary-light-color);
+    cursor: pointer;
+    color: white;
+}
+
+/* End of aside navbar */
+
+/* Search */
+main {
+    color: var(--text-color--1);
+}
+
+.search {
+    background-color: var(--secondary-light-color);
+    border: none;
+    border-radius: 20px;
+    color: var(--text-color--2);
+    padding: 10px 20px;
+    color: var(--text-color--1) !important;
+}
+
+.search::placeholder {
+    color: var(--text-color--2);
+}
+
+.search:focus {
+    background-color: var(--secondary-light-color);
+}
+
+/* Highlights */
+.highlight-name {
+    font-size: 2rem;
+}
+
+.title {
+    font-size: 0.8rem;
+}
+
+.display-1 {
+    font-size: 3.5rem;
+}
+
+.highlights .icon {
+    width: 60px;
+}
+
+/* Hourly Forecast */
+.forecast-today .icon {
+    width: 40px;
+}
+
+.forecast-today .box:not(:last-of-type) {
+    border-right: 1px solid var(--text-color--2);
+}
+
+@media (max-width: 992px) {
+    .forecast-today .box:not(:last-of-type):nth-child(even) {
+        border-right: none;
+    }
+}
+
+/* Seven Day Forecast */
+.seven-day-forecast .icon {
+    width: 40px;
+}
+
+.seven-day-forecast .box span:nth-of-type(1) {
+    display: inline-block;
+    width: 50px;
+}
+
+.seven-day-forecast .box:not(:last-of-type) {
+    border-bottom: 1px solid var(--text-color--2);
+}

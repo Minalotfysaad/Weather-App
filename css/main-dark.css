@@ -1,0 +1,117 @@
+:root {
+    --primary-dark-color: #0b131e;
+    --secondary-dark-color: #202b3b;
+    --tertiary-dark-color: #2a3546;
+    --text-color-dark-1: #c5cbd4;
+    --text-color-dark-2: #9198a1;
+}
+
+h1 {
+    font-family: "Merriweather Sans", sans-serif;
+}
+
+.text-off {
+    color: var(--text-color-dark-2);
+}
+
+body {
+    background-color: var(--primary-dark-color);
+}
+
+.section {
+    background-color: var(--secondary-dark-color);
+    border-radius: 20px;
+}
+
+.my-nav {
+    color: var(--text-color-dark-1);
+}
+
+@media (max-width: 992px) {
+    .my-nav {
+        justify-content: space-evenly;
+    }
+}
+
+.menu-item {
+    border-radius: 20px;
+    transition: 0.3s all ease;
+}
+
+.menu-item.active,
+.menu-item:hover {
+    background-color: var(--tertiary-dark-color);
+    cursor: pointer;
+    color: white;
+}
+
+/* End of aside navbar */
+
+/* Search */
+main {
+    color: white;
+}
+
+.search {
+    background-color: var(--secondary-dark-color);
+    border: none;
+    border-radius: 20px;
+    color: var(--text-color-dark-2);
+    padding: 10px 20px;
+    color: white !important;
+}
+
+.search::placeholder {
+    color: var(--text-color-dark-2);
+}
+
+.search:focus {
+    background-color: var(--secondary-dark-color);
+}
+
+/* Highlights */
+.highlight-name {
+    font-size: 2rem;
+}
+
+.title {
+    font-size: 0.8rem;
+}
+
+.display-1 {
+    font-size: 3.5rem;
+}
+
+.highlights .icon {
+    width: 60px;
+}
+
+/* Hourly Forecast */
+.forecast-today .icon {
+    width: 40px;
+}
+
+.forecast-today .box:not(:last-of-type) {
+    border-right: 1px solid var(--text-color-dark-2);
+}
+
+@media (max-width: 992px) {
+    .forecast-today .box:not(:last-of-type):nth-child(even) {
+        border-right: none;
+    }
+}
+
+/* Seven Day Forecast */
+.seven-day-forecast .icon {
+    width: 40px;
+}
+
+.seven-day-forecast .box span:nth-of-type(1) {
+    display: inline-block;
+    width: 50px;
+    color: white;
+}
+
+.seven-day-forecast .box:not(:last-of-type) {
+    border-bottom: 1px solid var(--text-color-dark-2);
+}
