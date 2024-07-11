@@ -40,13 +40,25 @@ async function getData(location) {
                     try {
                         const response = await fetch(apiUrl);
                         const data = await response.json();
-                        console.log(data);
                         displayHighlights(data);
                         displayHourlyForecast(data);
                         displaySevenDayForecast(data);
                         displayAirConditions(data);
                     } catch (error) {
                         console.error("Error fetching weather data:", error);
+                        const errorMsg = document.createElement("h2");
+                        errorMsg.textContent = "Error fetching weather data";
+                        errorMsg.classList.add("error", "display-1");
+                        document
+                            .querySelector(".weather-info .highlights")
+                            .appendChild(errorMsg);
+                            document
+                            .querySelector(".weather-info .highlights").style.margin = "50px auto";
+                            const spinner = document.querySelectorAll(".spinner");
+                            spinner[0].style.display = "none";
+                        for(let i = 0; i < spinner.length; i++) {
+                            spinner[i].style.visibility = "hidden";
+                        }
                     }
                 },
                 (error) => {
@@ -65,7 +77,6 @@ async function getData(location) {
         try {
             const response = await fetch(apiUrl);
             const data = await response.json();
-            console.log(data);
             displayHighlights(data);
             displayHourlyForecast(data);
             displaySevenDayForecast(data);
@@ -179,7 +190,7 @@ function displaySevenDayForecast(data) {
 
         content += `
             <div class="box d-flex align-items-center w-100 p-4 justify-content-between">
-                <span class="d-block text-off">${dayName}</span>
+                <span class="day-name d-block text-off">${dayName}</span>
                 <div class="icon"><img class="w-100" src="${forecastDay.day.condition.icon}" alt=""></div>
                 <span class="d-block fw-bold">
                     <span class="high fs-5">${forecastDay.day.maxtemp_c}°</span>

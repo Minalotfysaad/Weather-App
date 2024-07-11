@@ -163,9 +163,14 @@ main {
     width: 40px;
 }
 
-.seven-day-forecast .box span:nth-of-type(1) {
-    display: inline-block;
-    width: 50px;
+.seven-day-forecast .box .day-name,
+.seven-day-forecast .box .high,
+.seven-day-forecast .box .low
+{
+display: inline-block;
+width: 50px;
+}
+.seven-day-forecast .box .high{
     color: white;
 }
 

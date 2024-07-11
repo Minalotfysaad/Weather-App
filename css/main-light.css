@@ -4,6 +4,7 @@
     --tertiary-light-color: #d3d6da;
     --text-color--1: #1d2839;
     --text-color--2: #868b92;
+    --text-color--3: #585e66;
 }
 
 h1 {
@@ -81,7 +82,7 @@ body {
 /* End of spinner */
 /* Start of aside navbar */
 .my-nav {
-    color: var(--text-color--1);
+    color: var(--text-color--3);
 }
 
 @media (max-width: 992px) {
@@ -99,7 +100,7 @@ body {
 .menu-item:hover {
     background-color: var(--tertiary-light-color);
     cursor: pointer;
-    color: white;
+    color: var(--text-color--1);
 }
 
 /* End of aside navbar */
@@ -163,9 +164,15 @@ main {
     width: 40px;
 }
 
-.seven-day-forecast .box span:nth-of-type(1) {
-    display: inline-block;
-    width: 50px;
+.seven-day-forecast .box .day-name,
+.seven-day-forecast .box .high,
+.seven-day-forecast .box .low
+{
+display: inline-block;
+width: 50px;
+}
+.seven-day-forecast .box .high{
+    color: var(--text-color--1);
 }
 
 .seven-day-forecast .box:not(:last-of-type) {
