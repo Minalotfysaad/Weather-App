@@ -25,7 +25,7 @@ function toggleTheme() {
 
 // Function to fetch weather data based on city name or geolocation
 async function getData(location) {
-    const apiKey = "5f908b80dd754a9dba5222328240907";
+    const apiKey = "ac87e469795342bb856195010242407";
     var apiUrl;
 
     if (location === "current_location") {
