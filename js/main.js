@@ -25,7 +25,7 @@ function toggleTheme() {
 
 // Function to fetch weather data based on city name or geolocation
 async function getData(location) {
-    const apiKey = "ac87e469795342bb856195010242407";
+    const apiKey = "1e3bb03e845c42e5800193035240708";
     var apiUrl;
 
     if (location === "current_location") {
@@ -46,17 +46,13 @@ async function getData(location) {
                         displayAirConditions(data);
                     } catch (error) {
                         console.error("Error fetching weather data:", error);
-                        const errorMsg = document.createElement("h2");
-                        errorMsg.textContent = "Error fetching weather data";
-                        errorMsg.classList.add("error", "display-1");
-                        document
-                            .querySelector(".weather-info .highlights")
-                            .appendChild(errorMsg);
-                            document
-                            .querySelector(".weather-info .highlights").style.margin = "50px auto";
-                            const spinner = document.querySelectorAll(".spinner");
-                            spinner[0].style.display = "none";
-                        for(let i = 0; i < spinner.length; i++) {
+                        displayError();
+                        document.querySelector(
+                            ".weather-info .highlights"
+                        ).style.margin = "50px auto";
+                        const spinner = document.querySelectorAll(".spinner");
+                        spinner[0].style.display = "none";
+                        for (let i = 0; i < spinner.length; i++) {
                             spinner[i].style.visibility = "hidden";
                         }
                     }
@@ -106,6 +102,13 @@ function displayHighlights(data) {
     document.getElementById("highlights").innerHTML = content;
 }
 
+// Function to display error message
+function displayError() {
+    document.querySelector(".weather-info .highlights").style.margin =
+        "50px auto";
+    var content = `<h2 class="text-center display-1">Error fetching weather data</h2>`;
+    document.querySelector(".weather-info").innerHTML = content;
+}
 // Function to display hourly forecast
 function displayHourlyForecast(data) {
     var content = ``;

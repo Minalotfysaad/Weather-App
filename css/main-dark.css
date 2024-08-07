@@ -153,6 +153,15 @@ main {
 }
 
 @media (max-width: 992px) {
+
+    .forecast-today .box:nth-child(3) {
+        border-right: none;
+    }
+}
+@media (max-width: 768px) {
+    .forecast-today .box:not(:last-of-type) {
+        border-right: 1px solid var(--text-color-dark-2);
+    }
     .forecast-today .box:not(:last-of-type):nth-child(even) {
         border-right: none;
     }
